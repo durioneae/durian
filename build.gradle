@@ -1,0 +1,59 @@
+buildscript {
+	repositories {
+		jcenter()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		classpath('pl.allegro.tech.build:axion-release-plugin:1.6.0')
+	}
+}
+plugins {
+	id 'java'
+	id 'idea'
+	id 'maven'
+	id 'pl.allegro.tech.build.axion-release' version '1.8.1'
+	id 'org.jetbrains.kotlin.jvm' version '1.2.70'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.10.1'
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	jcenter()
+}
+group 'com.psmelser'
+version scmVersion.version
+
+
+scmVersion {
+	tag {
+		prefix = 'durian'
+	}
+	checks {
+		uncommittedChanges = false
+	}
+	nextVersion {
+		suffix = 'rc'
+		separator = '-'
+	}
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_10
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
