@@ -21,20 +21,20 @@ class Result<V, E> private constructor(private val value: Optional<V>, private v
      * @return
     </T> */
     fun <T> map(
-            valueFunction: Function<V, T>,
-            errorFunction: Function<E, T>): T {
+            valueFunction: (V) -> T,
+            errorFunction: (E) -> T): T {
         return value.map(valueFunction).orElseGet { error.map(errorFunction).get() }
     }
 
-    fun <T> mapValue(lFunc: Function<in V, out T>): Result<T, E> {
+    fun <T> mapValue(lFunc: (V) -> T): Result<T, E> {
         return Result(value.map(lFunc), error)
     }
 
-    fun <T> mapError(rFunc: Function<in E, out T>): Result<V, T> {
+    fun <T> mapError(rFunc: (E) -> T): Result<V, T> {
         return Result(value, error.map(rFunc))
     }
 
-    fun apply(valueFunction: Consumer<in V>, errorFunction: Consumer<in E>) {
+    fun apply(valueFunction: (V) -> Unit, errorFunction: (E) -> Unit) {
         value.ifPresent(valueFunction)
         error.ifPresent(errorFunction)
     }
