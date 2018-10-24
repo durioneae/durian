@@ -6,7 +6,7 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.util.Scanner
 
-class Resource : AutoCloseable {
+open class Resource : AutoCloseable {
     private val filePath: String
     private var reader: BufferedReader? = null
     private lateinit var scan: Scanner

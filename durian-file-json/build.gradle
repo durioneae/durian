@@ -1,0 +1,8 @@
+dependencies {
+	compile (
+			[group: 'com.psmelser',	name: 'jackson-json',	version: '0.1.4']
+	)
+	implementation (
+			project(":durian-core")
+	)
+}

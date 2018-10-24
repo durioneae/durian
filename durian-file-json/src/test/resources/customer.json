@@ -1,0 +1,17 @@
+{
+  "id": "eebd1b55-5360-4438-a11d-5c06918c3014",
+  "companyProfile": {
+	"tenantId": "eebd1b55-5360-4438-a11d-5c06918c3014",
+	"domain": "abcdefgh1234.ccsctp.net",
+	"companyName": "1kl as kjk",
+	"email": "a@a.com"
+  },
+  "billingProfile": {
+	"id": "eeada110-69d6-4cc9-b093-75feb7ca9d3f",
+	"firstName": "Jasond0d89d776d03471c819bf772191ed728",
+	"lastName": "kjkAJJAAAAAAAAAAAAAAAAAAAA",
+	"email": "a@a.com",
+	"culture": "en-US"
+  },
+  "allowDelegatedAccess": true
+}
