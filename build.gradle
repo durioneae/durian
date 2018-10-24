@@ -9,8 +9,8 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '4.10.1'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_10
-targetCompatibility = JavaVersion.VERSION_1_10
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
 	mavenCentral()
