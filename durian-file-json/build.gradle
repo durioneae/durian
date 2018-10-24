@@ -1,8 +1,32 @@
+plugins {
+	id 'org.jetbrains.kotlin.jvm' version '1.2.61'
+}
+
+group 'com.psmelser'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_10
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
 dependencies {
 	compile (
+			"org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+			project(":durian-core"),
 			[group: 'com.psmelser',	name: 'jackson-json',	version: '0.1.4']
 	)
-	implementation (
-			project(":durian-core")
+	testCompile (
+			[group: 'io.kotlintest', name: 'kotlintest', version: '2.0.7'],
+			[group: 'org.assertj', name: 'assertj-core', version: '3.11.1']
 	)
+}
+
+compileKotlin {
+	kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
+}
+compileTestKotlin {
+	kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
 }
