@@ -17,23 +17,17 @@ class EitherTest {
 
     @Test
     fun `When apply is called with left value then only the left closure is applied`() {
-        val either = left<String, String>("left")
-
-        either.apply({ assertThat(it).isEqualTo("left") }, { Assert.fail() })
+        left<String, String>("left").apply({ assertThat(it).isEqualTo("left") }, { Assert.fail() })
     }
 
     @Test
     fun `When ifLeft is called with left value then closure is applied`() {
-        val either = left<String, String>("left")
-
-        either.ifLeft { assertThat(it).isEqualTo("left") }
+        left<String, String>("left").ifLeft { assertThat(it).isEqualTo("left") }
     }
 
     @Test
     fun `When ifRight is called with left value then closure is not applied`() {
-        val either = left<String, String>("left")
-
-        either.ifRight { Assert.fail() }
+        left<String, String>("left").ifRight { Assert.fail() }
     }
 
     @Test
@@ -45,23 +39,18 @@ class EitherTest {
 
     @Test
     fun `When apply is called with right value then only the right closure is applied`() {
-        val either = right<String, String>("right")
-
-        either.apply({ Assert.fail() }, { assertThat(it).isEqualTo("right") })
+        right<String, String>("right")
+                .apply({ Assert.fail() }, { assertThat(it).isEqualTo("right") })
     }
 
     @Test
     fun `When ifRight is called with right value then closure is applied`() {
-        val either = right<String, String>("right")
-
-        either.ifRight { assertThat(it).isEqualTo("right") }
+        right<String, String>("right").ifRight { assertThat(it).isEqualTo("right") }
     }
 
     @Test
     fun `When ifLeft is called with right value then closure is not applied`() {
-        val either = right<String, String>("right")
-
-        either.ifLeft { Assert.fail() }
+        right<String, String>("right").ifLeft { Assert.fail() }
     }
 
     @Test
