@@ -1,15 +1,16 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+resources:
+  containers:
+  - container: my_container
+    image: openjdk:latest
 
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: 'ubuntu-16.04'
+
+container: my_container
 
 steps:
-- script: gradle build -x test
+- script: ./gradlew build -x test
   displayName: 'Gradle Build'
 
-- script: |
-    gradle test
+- script: ./gradlew test
   displayName: 'Gradle Test'
