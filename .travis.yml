@@ -1,0 +1,10 @@
+language: java
+sudo: enabled
+dist: trusty
+branches:
+  only:
+  - master
+jobs:
+  include:
+  - stage: Tests
+    script: ./gradlew test -i
