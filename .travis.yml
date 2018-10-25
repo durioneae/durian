@@ -1,6 +1,10 @@
 language: java
-sudo: enabled
+sudo: false
 dist: trusty
+
+jdk:
+  - openjdk10
+
 branches:
   only:
   - master
