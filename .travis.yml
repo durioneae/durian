@@ -1,0 +1,14 @@
+language: java
+sudo: false
+dist: trusty
+
+jdk:
+  - openjdk10
+
+branches:
+  only:
+  - master
+jobs:
+  include:
+  - stage: Tests
+    script: ./gradlew test -i
